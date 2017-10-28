@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+$background-dark: #fd81de;
+$text-color-default: white;
+
+body { 
+    padding: 0; 
+    margin: 0; 
+    font-family: Roboto, sans-serif;
+}
+
+.primary {
+    background: $background-dark;
+    color: $text-color-default;
+}
+
+.flex-spacer {
+    flex: 1 1 auto;
+}
+
+.container {
+    display: flex;
+}
+
+.space-maker {
+    flex-direction: column;
+}
