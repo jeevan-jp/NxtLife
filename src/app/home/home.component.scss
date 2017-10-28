@@ -1,3 +1,6 @@
+$background-dark: #fd81de;
+$text-color-default: #fff;
+
 .full-width {
     width: 95%
 }
@@ -8,4 +11,40 @@
 
 .form-size {
     width: 75%
+}
+
+.form-component { 
+    margin-left: 50px;
+}
+
+.add-color {
+    border: 1px solid $background-dark;
+}
+
+label {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+#heading {
+    text-align: center;
+    font-size: 30px;
+    text-decoration: bold;
+    color: $background-dark;
+    text-decoration: underline;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.background-primary {
+    background-color: $background-dark!important;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.container {
+    display: flex;
+    flex-flow: column;
+    align-items: stretch;
+    height: 100%;
 }

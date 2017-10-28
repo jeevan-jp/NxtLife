@@ -1,3 +1,9 @@
+$background-moredark: #e27aca;
+
+.active {
+    background: $background-moredark;
+}
+
 p {
     color: white;
 }
