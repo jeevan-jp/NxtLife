@@ -15,7 +15,7 @@ fxLayoutGap.xs="0">
         <i class="fa fa-times fa-lg fa-color" aria-hidden="true"></i>
       </span>
     </div>
-    <table>
+    <table *ngIf="data">
       <tr>
         <th>sno</th>
         <th>name</th>
@@ -33,6 +33,11 @@ fxLayoutGap.xs="0">
         <td>{{d.comment}}</td>
       </tr>
     </table>
+    <div [hidden]="data">
+      <span class="flex-spacer"></span>
+      <md-spinner></md-spinner>
+      <span class="flex-spacer"></span>
+    </div>
   </div>
 
 </div>
