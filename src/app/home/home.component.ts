@@ -101,8 +101,17 @@ export class HomeComponent implements OnInit {
 
   onSubmit() {
     this.feedback = this.contactForm.value;
-    this.feedback.sno = this.data.length + 1;
-    this.data.push(this.feedback);
+    var obj = this.contactservice.getObj();
+    if(obj !== null) {
+      this.feedback.sno = obj.sno;
+      var i = this.data.indexOf(obj);                    //searching for obj in data.
+      this.data[i] = this.feedback;
+      this.contactservice.setObjNull();
+    }
+    else {
+      this.feedback.sno = this.data.length + 1;   //providing a serial number.
+      this.data.push(this.feedback);
+    }
     console.log(this.feedback);
     this.contactForm.reset({
       name: '',
