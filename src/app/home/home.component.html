@@ -6,52 +6,60 @@ fxLayoutAlign.gt-sm="space-around center"
 fxLayoutGap="10px" 
 fxLayoutGap.xs="0">
 
-  <div fxFlex="50">
+  <div fxFlex="50" style="margin: 10px;">
     <div id="heading">Contact Form</div>
     <form novalidate [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-      <p>
         <md-input-container class="full-width"
-         dividerColor="{{(contactForm.get('name').hasError('required') && contactForm.get('name').touched) ? 'warn' : 'primary' }}" >
+         dividerColor="{{(formErrors.name) ? 'warn' : 'primary' }}" >
           <input mdInput formControlName="name" placeholder="Name" type="text" required>
           <md-hint>
-            <span [hidden]="!(contactForm.get('name').hasError('required') && 
-            contactForm.get('name').touched )">
-              Name is required!
+            <span [hidden]="!(formErrors.name)">
+              {{formErrors.name}}
             </span>
           </md-hint>
         </md-input-container>
+
         <md-input-container class="full-width"
-        dividerColor="{{(contactForm.get('email').hasError('required') && contactForm.get('email').touched) ? 'warn' : 'primary'}}" >
+        dividerColor="{{(formErrors.email) ? 'warn' : 'primary'}}" >
             <input mdInput formControlName="email" placeholder="e-Mail" type="email" required>
             <md-hint>
-              <span [hidden]="!(contactForm.get('email').hasError('required') && contactForm.get('email').touched)">
-                email is required!
+              <span [hidden]="!(formErrors.email)">
+                {{formErrors.email}}
               </span>
             </md-hint>
         </md-input-container>
-        <md-input-container class="full-width" dividerColor="{{(contactForm.get('contactnum').hasError('required') && contactForm.get('contactnum').touched ? 'warn' : 'primary')}}">
-            <input mdInput formControlName="contactnum" placeholder="Contact Number" required>
+
+        <md-input-container class="full-width" dividerColor="{{(formErrors.contactnum) ? 'warn' : 'primary'}}">
+            <input mdInput formControlName="contactnum" placeholder="Contact Number" type="tel" pattern="[0-9]*" required>
             <md-hint>
-              <span [hidden]="!(contactForm.get('contactnum').hasError('required') && contactForm.get('contactnum').touched)">
-                contact number is required!
+              <span [hidden]="!(formErrors.contactnum)">
+                {{formErrors.contactnum}}
               </span>
             </md-hint>
         </md-input-container>
-      </p>
-      <md-select formControlName="gender" placeholder="Gender" required>
-          <md-option>select</md-option>
-          <md-option value="male">Male</md-option>
-          <md-option value="female">Female</md-option>
-        </md-select>
-        <md-hint>
-          <span [hidden]="!(contactForm.get('gender').hasError('required') && contactForm.get('gender').touched)">gender is required!</span>
-        </md-hint>
-      <p> 
-       <md-input-container class="half-width">
-            <textarea style="resize: none" mdInput formControlName="comment" placeholder="Type Your Comment"></textarea>
-        </md-input-container>
-      </p>
-      <button type="submit" md-button class="background-primary" [disabled]="contactForm.invalid">Submit</button>
+
+        <p>
+          <md-select formControlName="gender" placeholder="Gender" required>
+            <md-option>select</md-option>
+            <md-option value="male">Male</md-option>
+            <md-option value="female">Female</md-option>
+          </md-select>
+          <md-hint>
+            <span [hidden]="!(formErrors.gender)" style="font-size: 12px">gender is required!</span>
+          </md-hint>
+        </p>
+
+        <p>
+          <md-input-container class="full-width">
+            <textarea style="resize: none; height: 300px" mdInput formControlName="comment" placeholder="Type Your Comment"></textarea>
+            <md-hint>
+              <span [hidden]="!(formErrors.comment)">
+                  {{formErrors.comment}}
+              </span>
+            </md-hint>
+          </md-input-container>
+        </p>
+        <button type="submit" md-button class="background-primary" [disabled]="contactForm.invalid">Submit</button>
     </form>
   </div>
 </div>

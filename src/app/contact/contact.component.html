@@ -6,37 +6,49 @@ fxLayoutAlign.gt-sm="space-around center"
 fxLayoutGap="10px" 
 fxLayoutGap.xs="0">
 
-  <div fxFlex="50">
+  <div fxFlex="50" style="margin: 0px 20px">
     <div id="heading">Contact List</div>
     <div class="icons">
-      <span class="flex-spacer"></span>
+      <span fxFlex class="flex-spacer"></span>
       <span id="fa-color">
-        <i class="fa fa-pencil fa-lg fa-color" aria-hidden="true"></i>
-        <i class="fa fa-times fa-lg fa-color" aria-hidden="true"></i>
+        <i (click)="edit()" routerLink="/home" class="fa fa-pencil fa-lg fa-color" aria-hidden="true"></i>
+        <i (click)="delete()" class="fa fa-times fa-lg fa-color" aria-hidden="true"></i>
       </span>
     </div>
     <table *ngIf="data">
-      <tr>
-        <th>sno</th>
-        <th>name</th>
-        <th>email</th>
-        <th>contact</th>
-        <th>gender</th>
-        <th>comment</th>
-      </tr>
-      <tr *ngFor="let d of data">
-        <td>{{d.sno}}</td>
-        <td>{{d.name}}</td>
-        <td>{{d.email}}</td>
-        <td>{{d.contactnum}}</td>
-        <td>{{d.gender}}</td>
-        <td>{{d.comment}}</td>
-      </tr>
+      <thead>
+        <tr>
+          <th>sno</th>
+          <th>name</th>
+          <th>email</th>
+          <th>contact</th>
+          <th>gender</th>
+          <th>comment</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let d of data" (click)="addToList(d.sno)" class="tableData">
+          <td>{{d.sno}}</td>
+          <td>{{d.name}}</td>
+          <td>{{d.email}}</td>
+          <td>{{d.contactnum}}</td>
+          <td>{{d.gender}}</td>
+          <td colspan="5">{{d.comment}}</td>
+        </tr>
+      </tbody>
     </table>
     <div [hidden]="data">
-      <span class="flex-spacer"></span>
-      <md-spinner></md-spinner>
-      <span class="flex-spacer"></span>
+      <table>
+          <tr>
+            <th>sno</th>
+            <th>name</th>
+            <th>email</th>
+            <th>contact</th>
+            <th>gender</th>
+          <th>comment</th>
+        </tr>
+      </table>
+      <h1 style="text-align: center">The list is empty</h1>
     </div>
   </div>
 

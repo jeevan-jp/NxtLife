@@ -14,6 +14,10 @@ td, th {
     padding: 8px;
 }
 
+td {
+    cursor: pointer;
+}
+
 #heading {
     text-align: center;
     font-size: 30px;
@@ -24,10 +28,6 @@ td, th {
     margin-bottom: 20px;
 }
 
-.icons {
-    display: flex;
-}
-
 .flex-spacer {
     flex: 1 1 auto;
 }
@@ -36,4 +36,8 @@ td, th {
     background: $background-dark;
     border : 3px solid #ff3ecf;
     color: $text-color-default;
+}
+
+.highlight {
+    background: #89f38f;
 }

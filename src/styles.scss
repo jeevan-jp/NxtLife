@@ -21,6 +21,7 @@ body {
 .container {
     display: flex;
     flex-flow: column;
+    min-height: 85vh;
 }
 
 .outline {
