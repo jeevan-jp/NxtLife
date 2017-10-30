@@ -53,7 +53,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.sno = this.contactservice.getSno();
-    if(this.sno!==0) {
+    if(this.sno!==-1) {
       var object = this.data.filter(values => {return values.sno == this.sno})[0];
       this.contactForm.reset({
         name: object.name,
