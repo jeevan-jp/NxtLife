@@ -109,7 +109,13 @@ export class HomeComponent implements OnInit {
       this.contactservice.setObjNull();
     }
     else {
-      this.feedback.sno = this.data.length + 1;   //providing a serial number.
+      //calculation of max serial number;
+      var max=0;
+      this.data.forEach(element => {
+        if(element.sno>max)
+          max = element.sno;
+      });
+      this.feedback.sno = max + 1;   //providing a serial number.
       this.data.push(this.feedback);
     }
     console.log(this.feedback);
