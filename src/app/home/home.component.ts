@@ -118,7 +118,7 @@ export class HomeComponent implements OnInit {
       this.feedback.sno = max + 1;   //providing a serial number.
       this.data.push(this.feedback);
     }
-    console.log(this.feedback);
+    console.log("The feedback is: ",this.feedback);
     this.contactForm.reset({
       name: '',
       email: '',
