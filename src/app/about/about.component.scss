@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
 $background-dark: #fd81de;
 $background-yellow: #ffc400;
 
@@ -9,5 +11,6 @@ $background-yellow: #ffc400;
 p {
     margin: 3% 20%;
     text-align: center;
-    font-size: 16px;
+    font-family: 'Raleway';
+    font-size: 18px;
 }
